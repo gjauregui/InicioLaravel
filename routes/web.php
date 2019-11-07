@@ -11,28 +11,56 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/get', function () {
-    return 'hola, este mensaje es por GET';
+    return "este es por GET";
 });
 
 Route::post('/post', function () {
-    return 'hola, este mensaje es por POST';
+    return "este mensaje es por POST";
 });
-Route::any('hola/{nombre?}/{edad?}', function ($nombre='Gabriel',$edad=20) {
-    return view('contacto/contacto')
-            ->with('nombre',$nombre)
-            ->with('edad',$edad)
-            ->with('frutas',['zandia',
-                            'fresa',
-                            'pera',
-                            'naranja']);
-}) ->where([
-    'nombre'=>'[A-Aa-z]+',
-    'edad'=>'[1-9]+'
-]);
 
+Route::GET('hola/{nombre?}/{edad?}', function ($nombre=null, $edad=null) {
+    return view('contacto/contacto')
+    ->with('nombre', $nombre)
+    ->with('edad', $edad)
+    ->with('frutas', ['fresa',
+                    'manzana',
+                    'pera']);
+}) ->where([
+    'nombre'=>'[A-Za-z]+',
+    'edad'  =>'[0-9]+'
+]);
+*/
+Route::get('/',function(){
+    return view('welcome');
+});
+
+Route::get('/get',function(){
+    return 'este mensaje es por GET';
+});
+
+Route::post('/post',function(){
+    return 'este mensaje es por POST';
+});
+
+Route::get('/hola-mundo',function(){
+    return view('holaMundo');
+});
+
+Route::GET('hola/{nombre?}/{edad?}',function($nombre='Gabriel',$edad=20){
+    return view('contacto/contacto')
+    ->with('nombre', $nombre)
+    ->with('edad', $edad)
+    ->with('frutas', ['fresa',
+                    'pera',
+                    'manzana']);
+}) ->where([
+    'nombre'=>'[A-Za-z]+',
+    'edad'=>'[0-9]+'
+]);
 

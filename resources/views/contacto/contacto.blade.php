@@ -1,13 +1,13 @@
 @include('contacto/cabecera', ['nombre'=>$nombre,
                                 'edad =>$edad'])
 
-<h1>Hola mi nombre es {{$nombre}} y mi edad es {{--$edad--}} </h1>
+<h1>Hola mi nombre es  {{$nombre}}</h1>
 
-@if(is_null($edad))
-    No existe la edad
-@else 
-    Si existe la edad: {{$edad}}
-@endif   
+@if(!isset($edad))
+    no existe la edad
+@else
+ TENGO {{$edad}}  AÑOS
+@endif        
 
 <p>
     <?php $numero = 5;?>
